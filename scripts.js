@@ -1,41 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Галерея слайдер
+  // Галерея слайдер нумерация
   // Левая кнопка
-  document.querySelectorAll('.gallery__click-left').forEach(function (arrow) {
-    arrow.addEventListener('click', function (event) {
+  document.querySelector('.gallery .carousel-control-prev').addEventListener('click', function (event) {
+    document.querySelectorAll('.gallery .carousel-item').forEach(function (el, numItem) {
+      if(el.classList.contains('active')) {
+        document.querySelectorAll('.gallery__number').forEach(function (str, numStr) {
+          str.classList.remove('gallery__number-activ')
 
-      const g_path = event.currentTarget.dataset.path
-
-      document.querySelectorAll('.gallery__img-block').forEach(function (block) {
-        block.classList.remove('is-activ')
-      })
-
-      document.querySelectorAll('.gallery__click-center').forEach(function (span) {
-        span.classList.remove('is-activ')
-      })
-
-      document.querySelectorAll(`[data-target="${g_path}"]`).forEach(function (tar) {
-        tar.classList.add('is-activ')
-      })
+          if(numItem === numStr) {
+            str.classList.add('gallery__number-activ')
+          }
+        })
+      }
     })
   })
   // Правая кнопка
-  document.querySelectorAll('.gallery__click-right').forEach(function (arrow) {
-    arrow.addEventListener('click', function (event) {
+  document.querySelector('.gallery .carousel-control-next').addEventListener('click', function (event) {
+    document.querySelectorAll('.gallery .carousel-item').forEach(function (el, numItem) {
 
-      const g_path = event.currentTarget.dataset.path
+      if(el.classList.contains('active')) {
+        document.querySelectorAll('.gallery__number').forEach(function (str, numStr) {
+          str.classList.remove('gallery__number-activ')
 
-      document.querySelectorAll('.gallery__img-block').forEach(function (block) {
-        block.classList.remove('is-activ')
-      })
-
-      document.querySelectorAll('.gallery__click-center').forEach(function (span) {
-        span.classList.remove('is-activ')
-      })
-
-      document.querySelectorAll(`[data-target="${g_path}"]`).forEach(function (tar) {
-        tar.classList.add('is-activ')
-      })
+          if(numItem === numStr) {
+            str.classList.add('gallery__number-activ')
+          }
+        })
+      }
     })
   })
 
@@ -76,7 +67,51 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   })
 
-  // Маска для формы блока Издания
+  // Контакты. Валидация и маскирование формы
+  var selector = document.querySelector("input[type='tel']");
 
+  var im = new Inputmask("+7(999) 999-99-99");
+  im.mask(selector);
+
+  new JustValidate('.contacts__form', {
+    rules: {
+      name: {
+        required: true,
+        minLength: 2,
+      },
+      tel: {
+        required: true,
+        function: (name, value) => {
+          const ph = selector.inputmask.unmaskedvalue()
+
+          return Number(ph) && ph.length === 10
+        }
+      },
+    }})
+
+  // Карта
+  // Функция ymaps.ready() будет вызвана, когда
+  // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+  ymaps.ready(init);
+  function init(){
+    // Создание карты.
+    var myMap = new ymaps.Map("map", {
+      // Координаты центра карты.
+      // Порядок по умолчанию: «широта, долгота».
+      // Чтобы не определять координаты центра карты вручную,
+      // воспользуйтесь инструментом Определение координат.
+      center: [55.7593103497515,37.64209791847732],
+      // Уровень масштабирования. Допустимые значения:
+      // от 0 (весь мир) до 19.
+      zoom: 14
+    });
+
+    var myPlacemark = new ymaps.Placemark([55.75846806898367,37.60108849999989], {}, {
+      iconLayout: 'default#image',
+      iconImageHref: 'img/Map_dot.png',
+      iconImageSize: [20, 20],
+    });
+    myMap.geoObjects.add(myPlacemark)
+  }
 
 })
