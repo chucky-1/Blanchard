@@ -8,27 +8,26 @@
 
   <link rel="stylesheet" href="css/normalize.css">
 
-  <!--  Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+  <h1 class="visually-hidden"></h1>
+
   <header class="head">
     <div class="head__top">
       <div class="container head__top-container">
-        <div class="head__top-left">
+        <a class="head__top-left">
           <picture class="head__logo">
   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-            <img src="img/Blanchard.png" alt="Логотип Blanchard" class="head__logo-img">
+            <img src="img/Logo.png" alt="Логотип Blanchard" class="head__logo-img">
           </picture>
-
-          <picture class="head__tagline">
-            <img src="img/Blanchard_tagline.png" alt="художественная галерея" class="head__tagline-img">
-          </picture>
-        </div>
+        </a>
 
         <div class="head__top-center">
           <nav class="head__nav">
@@ -130,9 +129,12 @@
         </div>
 
         <div class="head__bottom-right">
-          <div class="head__search">
-            Поиск по сайту
-          </div>
+          <form class="head__search">
+            <label for="head-search" class="head__search-label">
+              <button class="head__search-btn"></button>
+              <input id="head-search" type="search" placeholder="Поиск по сайту" class="head__search-input">
+            </label>
+          </form>
         </div>
       </div>
     </div>
@@ -141,7 +143,7 @@
   <main class="main">
     <section class="banner">
 
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div id="carouselExampleSlidesOnly" class="carousel slide banner__slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="img/birmingham-museums-trust-MK_98NuC4-4-unsplash%201.jpg" class="d-block w-100" alt="...">
@@ -164,9 +166,9 @@
           Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.
         </p>
 
-        <button class="banner__btn">
+        <a href="" class="banner__btn">
           Подписаться на рассылку
-        </button>
+        </a>
       </div>
     </section>
 
@@ -202,7 +204,7 @@
             </span>
 
             <div class="dropdown gallery__dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton6" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton6" data-bs-toggle="dropdown" aria-expanded="false">
                 Живопись
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
@@ -220,124 +222,126 @@
         </div>
 
         <div class="gallery__right">
+          <div class="gallery-container">
 
-          <div class="gallery__number gallery__number-activ">
-            1 / 2
-          </div>
+            <div class="swiper-navigation">
+              <div class="swiper-button-prev swiper-btn swiper-prev"></div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next swiper-btn swiper-next"></div>
+            </div>
 
-          <div class="gallery__number">
-            2 / 2
-          </div>
-
-          <div class="carousel slide" id="g_carousel" data-bs-ride="gbs_carousel" data-interval="false" data-ride="carousel" data-pause="hover">
-
-            <div class="gallery__collection carousel-inner">
-              <div class="carousel-item active gallery__img-block">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
                 <picture class="gallery__img">
                   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
                   <img src="img/Rectangle%2070.jpg" alt="Картина" class="gallery__img-main">
                 </picture>
+              </div>
 
+              <div class="swiper-slide">
                 <picture class="gallery__img">
                   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
                   <img src="img/Rectangle%2069.jpg" alt="Картина" class="gallery__img-main">
                 </picture>
+              </div>
 
+              <div class="swiper-slide">
                 <picture class="gallery__img">
                   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
                   <img src="img/Rectangle%2068.jpg" alt="Картина" class="gallery__img-main">
                 </picture>
-
-                <picture class="gallery__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Rectangle%2072.jpg" alt="Картина" class="gallery__img-main">
-                </picture>
-
-                <picture class="gallery__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Rectangle%2073.jpg" alt="Картина" class="gallery__img-main">
-                </picture>
-
-                <picture class="gallery__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Rectangle%2071.jpg" alt="Картина" class="gallery__img-main">
-                </picture>
-
-                <!--              <div class="gallery-number">-->
-                <!--                1 / 2-->
-                <!--              </div>-->
               </div>
 
-              <div class="carousel-item gallery__img-block">
+              <div class="swiper-slide">
                 <picture class="gallery__img">
                   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
                   <img src="img/Rectangle%201.jpg" alt="Картина" class="gallery__img-main">
                 </picture>
+              </div>
 
+              <div class="swiper-slide">
                 <picture class="gallery__img">
                   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
                   <img src="img/Rectangle%202.jpg" alt="Картина" class="gallery__img-main">
                 </picture>
+              </div>
 
+              <div class="swiper-slide">
                 <picture class="gallery__img">
                   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
                   <img src="img/Rectangle%203.jpg" alt="Картина" class="gallery__img-main">
                 </picture>
+              </div>
 
+              <div class="swiper-slide">
+                <picture class="gallery__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Rectangle%2072.jpg" alt="Картина" class="gallery__img-main">
+                </picture>
+              </div>
+
+              <div class="swiper-slide">
+                <picture class="gallery__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Rectangle%2073.jpg" alt="Картина" class="gallery__img-main">
+                </picture>
+              </div>
+
+              <div class="swiper-slide">
+                <picture class="gallery__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Rectangle%2071.jpg" alt="Картина" class="gallery__img-main">
+                </picture>
+              </div>
+
+              <div class="swiper-slide">
                 <picture class="gallery__img">
                   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
                   <img src="img/Rectangle%204.jpg" alt="Картина" class="gallery__img-main">
                 </picture>
+              </div>
 
+              <div class="swiper-slide">
                 <picture class="gallery__img">
                   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
                   <img src="img/Rectangle%205.jpg" alt="Картина" class="gallery__img-main">
                 </picture>
+              </div>
 
+              <div class="swiper-slide">
                 <picture class="gallery__img">
                   <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
                   <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
                   <img src="img/Rectangle%206.jpg" alt="Картина" class="gallery__img-main">
                 </picture>
-
-                <!--              <div class="gallery-number">-->
-                <!--                2 / 2-->
-                <!--              </div>-->
               </div>
-            </div>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#g_carousel"  data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <!--            <span class="visually-hidden">Предыдущий</span>-->
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#g_carousel"  data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <!--            <span class="visually-hidden">Следующий</span>-->
-            </button>
+            </div>
           </div>
+
         </div>
 
       </div>
@@ -506,7 +510,7 @@
                 </h3>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <strong>Это тело аккордеона второго элемента.</strong> По умолчанию он скрыт, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                    Это тестовый текст
                   </div>
                 </div>
               </div>
@@ -519,7 +523,7 @@
                 </h3>
                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <strong>Это тело аккордеона третьего элемента.</strong> По умолчанию оно скрыто, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                    Это тестовый текст
                   </div>
                 </div>
               </div>
@@ -532,7 +536,7 @@
                 </h3>
                 <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <strong>Это тело аккордеона третьего элемента.</strong> По умолчанию оно скрыто, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                    Это тестовый текст
                   </div>
                 </div>
               </div>
@@ -545,7 +549,7 @@
                 </h3>
                 <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <strong>Это тело аккордеона третьего элемента.</strong> По умолчанию оно скрыто, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                    Это тестовый текст
                   </div>
                 </div>
               </div>
@@ -558,7 +562,7 @@
                 </h3>
                 <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <strong>Это тело аккордеона третьего элемента.</strong> По умолчанию оно скрыто, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                    Это тестовый текст
                   </div>
                 </div>
               </div>
@@ -571,7 +575,7 @@
                 </h3>
                 <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <strong>Это тело аккордеона третьего элемента.</strong> По умолчанию оно скрыто, пока плагин свертывания не добавит соответствующие классы, которые мы используем для стилизации каждого элемента. Эти классы управляют общим внешним видом, а также отображением и скрытием с помощью переходов CSS. Вы можете изменить все это с помощью собственного CSS или переопределить наши переменные по умолчанию. Также стоит отметить, что практически любой HTML может быть помещен в <code>.accordion-body</code>, хотя переход ограничивает переполнение.
+                    Это тестовый текст
                   </div>
                 </div>
               </div>
@@ -610,9 +614,9 @@
               которую продолжили его брат Давид и сын Ридольфо.
             </div>
 
-            <span class="events__details">
+            <a href="" class="events__details">
               Подробнее
-            </span>
+            </a>
           </li>
 
           <li class="events__item events__item-activ">
@@ -636,9 +640,9 @@
               Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.
             </div>
 
-            <span class="events__details">
+            <a href="" class="events__details">
               Подробнее
-            </span>
+            </a>
           </li>
 
           <li class="events__item events__item-activ">
@@ -663,9 +667,9 @@
               важную роль в формировании глубокомысленных рассуждений.
             </div>
 
-            <span class="events__details">
+            <a href="" class="events__details">
               Подробнее
-            </span>
+            </a>
           </li>
 
           <li class="events__item">
@@ -689,9 +693,9 @@
               Внезапно, реплицированные с зарубежных источников, современные исследования.
             </div>
 
-            <span class="events__details">
+            <a href="" class="events__details">
               Подробнее
-            </span>
+            </a>
           </li>
 
           <li class="events__item">
@@ -716,9 +720,9 @@
               которую продолжили его брат Давид и сын Ридольфо.
             </div>
 
-            <span class="events__details">
+            <a href="" class="events__details">
               Подробнее
-            </span>
+            </a>
           </li>
 
           <li class="events__item">
@@ -743,14 +747,20 @@
               которую продолжили его брат Давид и сын Ридольфо.
             </div>
 
-            <span class="events__details">
+            <a href="" class="events__details">
               Подробнее
-            </span>
+            </a>
           </li>
         </ul>
 
         <button class="btn events__button">
-          Все события
+          <span class="events__span events__span-one">
+            Все события
+          </span>
+
+          <span class="events__span events__span-two disactiv">
+            Скрыть
+          </span>
         </button>
       </div>
     </section>
@@ -908,235 +918,218 @@
         </div>
 
         <div class="editions__right">
-          <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="carousel-item-block">
-                  <picture class="editions__img">
-                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                    <img src="img/Collection_1.jpg" alt="Картина" class="editions__img-main">
-                  </picture>
+          <div class="editions-container">
 
-                  <div class="editions__description">
-                    <div class="editions__nameAndAuthor">
-                      <div class="editions__name">
-                        Искусство цвета
-                      </div>
+            <div class="editions__navigation">
+              <div class="swiper-button-prev swiper-btn swiper-prev"></div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-next swiper-btn swiper-next"></div>
+            </div>
 
-                      <div class="editions__author">
-                        Иттен, Иоханнес
-                      </div>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <picture class="editions__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Collection_1.jpg" alt="Картина" class="editions__img-main">
+                </picture>
+
+                <div class="editions__description">
+                  <div class="editions__nameAndAuthor">
+                    <div class="editions__name">
+                      Искусство цвета
                     </div>
 
-                    <div class="editions__price">
-                      620 руб
-                    </div>
-                  </div>
-
-                  <button class="btn editions__button">
-                    Заказать
-                  </button>
-                </div>
-
-                <div class="carousel-item-block">
-                  <picture class="editions__img">
-                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                    <img src="img/Collection_2.jpg" alt="Картина" class="editions__img-main">
-                  </picture>
-
-                  <div class="editions__description">
-                    <div class="editions__nameAndAuthor">
-                      <div class="editions__name">
-                        Типографика
-                      </div>
-
-                      <div class="editions__author">
-                        Рудер, Эмиль
-                      </div>
-                    </div>
-
-                    <div class="editions__price">
-                      2 450 руб
+                    <div class="editions__author">
+                      Иттен, Иоханнес
                     </div>
                   </div>
 
-                  <button class="btn editions__button">
-                    Заказать
-                  </button>
-                </div>
-
-                <div class="carousel-item-block">
-                  <picture class="editions__img">
-                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                    <img src="img/Collection_3.jpg" alt="Картина" class="editions__img-main">
-                  </picture>
-
-                  <div class="editions__description">
-                    <div class="editions__nameAndAuthor">
-                      <div class="editions__name">
-                        Книга про буквы
-                      </div>
-
-                      <div class="editions__author">
-                        Гордон, Юрий
-                      </div>
-                    </div>
-
-                    <div class="editions__price">
-                      2 200 руб
-                    </div>
+                  <div class="editions__price">
+                    620 руб
                   </div>
-
-                  <button class="btn editions__button">
-                    Заказать
-                  </button>
                 </div>
 
-                <div class="carousel-number">
-                  1 / 3
-                </div>
+                <button class="btn editions__button">
+                  Заказать
+                </button>
               </div>
-              <div class="carousel-item">
-                <div class="carousel-item-block">
-                  <picture class="editions__img">
-                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                    <img src="img/Collection_4.jpg" alt="Картина" class="editions__img-main">
-                  </picture>
 
-                  <div class="editions__description">
-                    <div class="editions__nameAndAuthor">
-                      <div class="editions__name">
-                        Николай Ильин
-                      </div>
+              <div class="swiper-slide">
+                <picture class="editions__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Collection_2.jpg" alt="Картина" class="editions__img-main">
+                </picture>
 
-                      <div class="editions__author">
-                        Кричевский, Владимир
-                      </div>
+                <div class="editions__description">
+                  <div class="editions__nameAndAuthor">
+                    <div class="editions__name">
+                      Типографика
                     </div>
 
-                    <div class="editions__price">
-                      1 100 руб
+                    <div class="editions__author">
+                      Рудер, Эмиль
                     </div>
                   </div>
 
-                  <button class="btn editions__button">
-                    Заказать
-                  </button>
-                </div>
-
-                <div class="carousel-item-block">
-                  <picture class="editions__img">
-                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                    <img src="img/Collection_5.jpg" alt="Картина" class="editions__img-main">
-                  </picture>
-
-                  <div class="editions__description">
-                    <div class="editions__nameAndAuthor">
-                      <div class="editions__name">
-                        Модульные сетки в граф...
-                      </div>
-
-                      <div class="editions__author">
-                        Мюллер-Брокманн, Йозеф
-                      </div>
-                    </div>
-
-                    <div class="editions__price">
-                      1 450 руб
-                    </div>
+                  <div class="editions__price">
+                    2 450 руб
                   </div>
-
-                  <button class="btn editions__button">
-                    Заказать
-                  </button>
                 </div>
 
-                <div class="carousel-item-block">
-                  <picture class="editions__img">
-                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                    <img src="img/Collection_6.jpg" alt="Картина" class="editions__img-main">
-                  </picture>
-
-                  <div class="editions__description">
-                    <div class="editions__nameAndAuthor">
-                      <div class="editions__name">
-                        Эволюция графических ст...
-                      </div>
-
-                      <div class="editions__author">
-                        Хеллер, Чваст
-                      </div>
-                    </div>
-
-                    <div class="editions__price">
-                      3 200 руб
-                    </div>
-                  </div>
-
-                  <button class="btn editions__button">
-                    Заказать
-                  </button>
-                </div>
-
-                <div class="carousel-number">
-                  2 / 3
-                </div>
+                <button class="btn editions__button">
+                  Заказать
+                </button>
               </div>
-              <div class="carousel-item">
-                <div class="carousel-item-block">
-                  <picture class="editions__img">
-                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                    <img src="img/Collection_7.jpg" alt="Картина" class="editions__img-main">
-                  </picture>
 
-                  <div class="editions__description">
-                    <div class="editions__nameAndAuthor">
-                      <div class="editions__name">
-                        Искусство и визуальное в...
-                      </div>
+              <div class="swiper-slide">
+                <picture class="editions__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Collection_3.jpg" alt="Картина" class="editions__img-main">
+                </picture>
 
-                      <div class="editions__author">
-                        Арнхейм, Рудольф
-                      </div>
+                <div class="editions__description">
+                  <div class="editions__nameAndAuthor">
+                    <div class="editions__name">
+                      Книга про буквы
                     </div>
 
-                    <div class="editions__price">
-                      2 200 руб
+                    <div class="editions__author">
+                      Гордон, Юрий
                     </div>
                   </div>
 
-                  <button class="btn editions__button">
-                    Заказать
-                  </button>
+                  <div class="editions__price">
+                    2 200 руб
+                  </div>
                 </div>
 
-                <div class="carousel-number">
-                  3 / 3
+                <button class="btn editions__button">
+                  Заказать
+                </button>
+              </div>
+
+              <div class="swiper-slide">
+                <picture class="editions__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Collection_4.jpg" alt="Картина" class="editions__img-main">
+                </picture>
+
+                <div class="editions__description">
+                  <div class="editions__nameAndAuthor">
+                    <div class="editions__name">
+                      Николай Ильин
+                    </div>
+
+                    <div class="editions__author">
+                      Кричевский, Владимир
+                    </div>
+                  </div>
+
+                  <div class="editions__price">
+                    1 100 руб
+                  </div>
                 </div>
+
+                <button class="btn editions__button">
+                  Заказать
+                </button>
+              </div>
+
+              <div class="swiper-slide">
+                <picture class="editions__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Collection_5.jpg" alt="Картина" class="editions__img-main">
+                </picture>
+
+                <div class="editions__description">
+                  <div class="editions__nameAndAuthor">
+                    <div class="editions__name">
+                      Модульные сетки в граф...
+                    </div>
+
+                    <div class="editions__author">
+                      Мюллер-Брокманн, Йозеф
+                    </div>
+                  </div>
+
+                  <div class="editions__price">
+                    1 450 руб
+                  </div>
+                </div>
+
+                <button class="btn editions__button">
+                  Заказать
+                </button>
+              </div>
+
+              <div class="swiper-slide">
+                <picture class="editions__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Collection_6.jpg" alt="Картина" class="editions__img-main">
+                </picture>
+
+                <div class="editions__description">
+                  <div class="editions__nameAndAuthor">
+                    <div class="editions__name">
+                      Эволюция графических ст...
+                    </div>
+
+                    <div class="editions__author">
+                      Хеллер, Чваст
+                    </div>
+                  </div>
+
+                  <div class="editions__price">
+                    3 200 руб
+                  </div>
+                </div>
+
+                <button class="btn editions__button">
+                  Заказать
+                </button>
+              </div>
+
+              <div class="swiper-slide">
+                <picture class="editions__img">
+                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                  <img src="img/Collection_7.jpg" alt="Картина" class="editions__img-main">
+                </picture>
+
+                <div class="editions__description">
+                  <div class="editions__nameAndAuthor">
+                    <div class="editions__name">
+                      Искусство и визуальное в...
+                    </div>
+
+                    <div class="editions__author">
+                      Арнхейм, Рудольф
+                    </div>
+                  </div>
+
+                  <div class="editions__price">
+                    2 200 руб
+                  </div>
+                </div>
+
+                <button class="btn editions__button">
+                  Заказать
+                </button>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<!--              <span class="visually-hidden">Предыдущий</span>-->
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-<!--              <span class="visually-hidden">Следующий</span>-->
-            </button>
           </div>
 
         </div>
@@ -1184,86 +1177,117 @@
           Партнёры проектов:
         </h3>
 
-        <div class="gallery__container-carusel">
-          <div id="projects__carusel" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <picture class="projects__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Partners_1.png" alt="Партнёр" class="projects__img-main">
-                </picture>
+        <div class="projects__slider">
 
-                <picture class="projects__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Partners_2.png" alt="Партнёр" class="projects__img-main">
-                </picture>
+          <div class="projects-button-prev swiper-btn swiper-prev"></div>
 
-                <picture class="projects__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Partners_3.png" alt="Партнёр" class="projects__img-main">
-                </picture>
+          <div class="projects-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="" class="projects__link">
+                  <picture class="projects__img">
+                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                    <img src="img/Partners_1.png" alt="Партнёр" class="projects__img-main">
+                  </picture>
+                </a>
               </div>
-              <div class="carousel-item">
-                <picture class="projects__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Partners_4.png" alt="Партнёр" class="projects__img-main">
-                </picture>
 
-                <picture class="projects__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Partners_5.png" alt="Партнёр" class="projects__img-main">
-                </picture>
-
-                <picture class="projects__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Partners_6.png" alt="Партнёр" class="projects__img-main">
-                </picture>
+              <div class="swiper-slide">
+                <a href="" class="projects__link">
+                  <picture class="projects__img">
+                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                    <img src="img/Partners_2.png" alt="Партнёр" class="projects__img-main">
+                  </picture>
+                </a>
               </div>
-              <div class="carousel-item">
-                <picture class="projects__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Partners_7.png" alt="Партнёр" class="projects__img-main">
-                </picture>
 
-                <picture class="projects__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Partners_8.png" alt="Партнёр" class="projects__img-main">
-                </picture>
+              <div class="swiper-slide">
+                <a href="" class="projects__link">
+                  <picture class="projects__img">
+                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                    <img src="img/Partners_3.png" alt="Партнёр" class="projects__img-main">
+                  </picture>
+                </a>
+              </div>
 
-                <picture class="projects__img">
-                  <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
-                  <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-                  <img src="img/Partners_9.png" alt="Партнёр" class="projects__img-main">
-                </picture>
+              <div class="swiper-slide">
+                <a href="" class="projects__link">
+                  <picture class="projects__img">
+                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                    <img src="img/Partners_4.png" alt="Партнёр" class="projects__img-main">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a href="" class="projects__link">
+                  <picture class="projects__img">
+                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                    <img src="img/Partners_5.png" alt="Партнёр" class="projects__img-main">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a href="" class="projects__link">
+                  <picture class="projects__img">
+                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                    <img src="img/Partners_6.png" alt="Партнёр" class="projects__img-main">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a href="" class="projects__link">
+                  <picture class="projects__img">
+                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                    <img src="img/Partners_7.png" alt="Партнёр" class="projects__img-main">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a href="" class="projects__link">
+                  <picture class="projects__img">
+                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                    <img src="img/Partners_8.png" alt="Партнёр" class="projects__img-main">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a href="" class="projects__link">
+                  <picture class="projects__img">
+                    <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
+                    <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
+                    <img src="img/Partners_9.png" alt="Партнёр" class="projects__img-main">
+                  </picture>
+                </a>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#projects__carusel"  data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <!--            <span class="visually-hidden">Предыдущий</span>-->
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#projects__carusel"  data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <!--            <span class="visually-hidden">Следующий</span>-->
-            </button>
+
           </div>
+
+          <div class="projects-button-next swiper-btn swiper-next"></div>
         </div>
+
       </div>
     </section>
 
@@ -1302,19 +1326,15 @@
             Связаться в один клик
           </h3>
 
-          <div class="contacts__social-block">
-            <div class="contacts__social-icon">
-              <a href="">
-                <img src="img/Whatsapp-Icon.png" alt="Whatsapp">
-              </a>
-            </div>
+          <ul class="contacts__social-block">
+            <li class="contacts__social-icon">
+              <a href="" class="contacts__link"></a>
+            </li>
 
-            <div class="contacts__social-icon">
-              <a href="">
-                <img src="img/Telegram_2019_Logo.png" alt="Telegram">
-              </a>
-            </div>
-          </div>
+            <li class="contacts__social-icon">
+              <a href="" class="contacts__link"></a>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -1326,36 +1346,33 @@
 
   <footer class="footer">
     <div class="container footer__container">
-      <div class="footer__left">
+      <a class="footer__left">
         <picture class="footer__logo">
           <!--            <source srcset="img/Rectangle%209-320.jpg" media="(max-width: 320px)" class="teachers__img">-->
           <!--            <source srcset="img/Rectangle%209-576.jpg" media="(max-width: 576px)" class="teachers__img">-->
           <!--            <source srcset="img/Rectangle%209-768.jpg" media="(max-width: 768px)" class="teachers__img">-->
-          <img src="img/Blanchard.png" alt="Логотип Blanchard" class="footer__logo-img">
+          <img src="img/Logo.png" alt="Логотип Blanchard" class="footer__logo-img">
         </picture>
+      </a>
 
-        <picture class="footer__tagline">
-          <img src="img/Blanchard_tagline.png" alt="художественная галерея" class="footer__tagline-img">
-        </picture>
-      </div>
+      <ul class="footer__right">
+        <li class="footer__item">
+          <a href="" class="footer__link"></a>
+        </li>
 
-      <div class="footer__right">
-        <a href="" class="footer__link">
-          <img src="img/vk_icon.png" alt="vk" class="footer__social">
-        </a>
+        <li class="footer__item">
+          <a href="" class="footer__link"></a>
+        </li>
 
-        <a href="" class="footer__link">
-          <img src="img/instagram_icon.png" alt="instagram" class="footer__social">
-        </a>
-
-        <a href="" class="footer__link">
-          <img src="img/fb_icon.png" alt="fb" class="footer__social">
-        </a>
-      </div>
+        <li class="footer__item">
+          <a href="" class="footer__link"></a>
+        </li>
+      </ul>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="jquery.js"></script>
   <script src="inputmask.min.js"></script>
   <script src="just-validate.min.js"></script>

@@ -1,34 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Галерея слайдер нумерация
-  // Левая кнопка
-  document.querySelector('.gallery .carousel-control-prev').addEventListener('click', function (event) {
-    document.querySelectorAll('.gallery .carousel-item').forEach(function (el, numItem) {
-      if(el.classList.contains('active')) {
-        document.querySelectorAll('.gallery__number').forEach(function (str, numStr) {
-          str.classList.remove('gallery__number-activ')
+  // Галерея слайдер
+  const swiper = new Swiper('.gallery-container', {
+    allowTouchMove: false,
+    slidesPerColumnFill: 'row',
+    slidesPerView: 3,
+    slidesPerColumn: 2,
+    slidesPerGroup: 6,
+    spaceBetween: 50,
 
-          if(numItem === numStr) {
-            str.classList.add('gallery__number-activ')
-          }
-        })
-      }
-    })
-  })
-  // Правая кнопка
-  document.querySelector('.gallery .carousel-control-next').addEventListener('click', function (event) {
-    document.querySelectorAll('.gallery .carousel-item').forEach(function (el, numItem) {
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      type: "fraction",
+    },
 
-      if(el.classList.contains('active')) {
-        document.querySelectorAll('.gallery__number').forEach(function (str, numStr) {
-          str.classList.remove('gallery__number-activ')
-
-          if(numItem === numStr) {
-            str.classList.add('gallery__number-activ')
-          }
-        })
-      }
-    })
-  })
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 
   // Выбор языка/страны
   document.querySelectorAll('.catalog__country').forEach(function (btnActive) {
@@ -60,12 +51,68 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Кнопка все события
   document.querySelector('.events__button').addEventListener('click', function (event) {
-    document.querySelector('.events__button').classList.add('disactiv')
+    // document.querySelector('.events__button').classList.add('disactiv')
 
-    document.querySelectorAll('.events__item').forEach(function (li) {
-      li.classList.add('events__item-activ')
+    document.querySelectorAll('.events__span').forEach(function (el) {
+      el.classList.toggle('disactiv')
     })
+
+    const span = document.querySelector('.events__span-one')
+
+    if (span.classList.contains('disactiv')) {
+      document.querySelectorAll('.events__item').forEach(function (li) {
+        li.classList.add('events__item-activ')
+      })
+    } else {
+      document.querySelectorAll('.events__item').forEach(function (li, num) {
+        if (num > 2) {
+          li.classList.remove('events__item-activ')
+        }
+      })
+    }
   })
+
+  // Издания слайдер
+  const swiper2 = new Swiper('.editions-container', {
+    allowTouchMove: false,
+    slidesPerColumnFill: 'row',
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    spaceBetween: 50,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      type: "fraction",
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  // Проекты слайдер
+  const swiper3 = new Swiper('.projects-container', {
+    allowTouchMove: false,
+    slidesPerColumnFill: 'row',
+    slidesPerView: 3,
+    slidesPerGroup: 3,
+    spaceBetween: 50,
+
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      type: "fraction",
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.projects-button-next',
+      prevEl: '.projects-button-prev',
+    },
+  });
 
   // Контакты. Валидация и маскирование формы
   var selector = document.querySelector("input[type='tel']");
@@ -112,6 +159,14 @@ document.addEventListener('DOMContentLoaded', function () {
       iconImageSize: [20, 20],
     });
     myMap.geoObjects.add(myPlacemark)
+
+    myMap.controls.remove('rulerControl');
+    myMap.controls.remove('searchControl');
+    myMap.controls.remove('typeSelector');
+    myMap.controls.remove('trafficControl');
+    myMap.controls.remove('fullscreenControl');
+    myMap.controls.remove('routeButton');
+    // myMap.controls.remove('geolocationControl');
   }
 
 })
