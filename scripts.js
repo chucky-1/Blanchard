@@ -16,9 +16,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Navigation arrows
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.btn-next-1',
+      prevEl: '.btn-prev-1',
     },
+  });
+
+  // Активировать выделение Категории в разделе Издания
+  document.querySelectorAll('.editions__input').forEach(function (el) {
+    el.setAttribute('tabindex', 1)
   });
 
   // Выбор языка/страны
@@ -29,7 +34,12 @@ document.addEventListener('DOMContentLoaded', function () {
         btnActive.classList.add('country-activ')
       })
     })
-  })
+  });
+
+  // Активировать выделение художника с помощью tab
+  document.querySelectorAll('.accordion__pointer').forEach(function (el) {
+    el.setAttribute('tabindex', 1)
+  });
 
   // Выбор художника
   document.querySelectorAll('.accordion__pointer').forEach(function (el) {
@@ -47,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       document.querySelector(`[data-target="${path}"]`).classList.add('catalog__left-activ')
     })
-  })
+  });
 
   // Кнопка все события
   document.querySelector('.events__button').addEventListener('click', function (event) {
@@ -70,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       })
     }
-  })
+  });
 
   // Издания слайдер
   const swiper2 = new Swiper('.editions-container', {
@@ -88,8 +98,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Navigation arrows
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.btn-next-2',
+      prevEl: '.btn-prev-2',
     },
   });
 
@@ -109,9 +119,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Navigation arrows
     navigation: {
-      nextEl: '.projects-button-next',
-      prevEl: '.projects-button-prev',
+      nextEl: '.btn-next-3',
+      prevEl: '.btn-prev-3',
     },
+  });
+
+  // Активировать выделение Партнеров на слайде Проекты
+  document.querySelectorAll('.swiper-slide').forEach(function (el) {
+    el.setAttribute('tabindex', 1)
   });
 
   // Контакты. Валидация и маскирование формы
@@ -134,7 +149,17 @@ document.addEventListener('DOMContentLoaded', function () {
           return Number(ph) && ph.length === 10
         }
       },
-    }})
+    }});
+
+  // Контакты. CSS input
+  document.querySelectorAll('.contacts__input').forEach(function (el) {
+    el.onfocus = function () {
+      el.classList.add('contacts__input-onfocus')
+    }
+    el.onblur = function () {
+      el.classList.remove('contacts__input-onfocus')
+    }
+  });
 
   // Карта
   // Функция ymaps.ready() будет вызвана, когда
@@ -167,6 +192,6 @@ document.addEventListener('DOMContentLoaded', function () {
     myMap.controls.remove('fullscreenControl');
     myMap.controls.remove('routeButton');
     // myMap.controls.remove('geolocationControl');
-  }
+  };
 
 })
