@@ -7,10 +7,10 @@
   <title>Blanchard</title>
 
   <link rel="stylesheet" href="css/normalize.css">
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -72,60 +72,55 @@
     <div class="head__bottom">
       <div class="container head__bottom-container">
         <div class="head__bottom-left">
-          <div class="dropdown head__select">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Реализм
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#">Выбор 1</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 2</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 3</a></li>
-            </ul>
-          </div>
+          <label class="head__label hl-1">
+            <select class="head__select">
+              <option class="head__option" value="">Реализм</option>
+              <option class="head__option" value="">Тинторетто</option>
+              <option class="head__option" value="">Фридрих</option>
+              <option class="head__option" value="">Леонардо</option>
+              <option class="head__option" value="">Верроккьо</option>
+            </select>
+          </label>
 
-          <div class="dropdown head__select">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
-              Импрессионизм
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-              <li><a class="dropdown-item" href="#">Выбор 1</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 2</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 3</a></li>
-            </ul>
-          </div>
+          <label class="head__label hl-2">
+            <select class="head__select">
+              <option class="head__option" value="">Импрессионизм</option>
+              <option class="head__option" value="">Моне</option>
+              <option class="head__option" value="">Сислей</option>
+              <option class="head__option" value="">Мане</option>
+              <option class="head__option" value="">Ренуар</option>
+            </select>
+          </label>
 
-          <div class="dropdown head__select">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
-              Постимпрессионизм
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-              <li><a class="dropdown-item" href="#">Выбор 1</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 2</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 3</a></li>
-            </ul>
-          </div>
+          <label class="head__label hl-3">
+            <select class="head__select">
+              <option class="head__option" value="">Постимпрессионизм</option>
+              <option class="head__option" value="">Ван Гог</option>
+              <option class="head__option" value="">Сезанн</option>
+              <option class="head__option" value="">Гоген</option>
+              <option class="head__option" value="">Сёра</option>
+            </select>
+          </label>
 
-          <div class="dropdown head__select">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-expanded="false">
-              Авангард
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-              <li><a class="dropdown-item" href="#">Выбор 1</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 2</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 3</a></li>
-            </ul>
-          </div>
+          <label class="head__label hl-4">
+            <select class="head__select">
+              <option class="head__option" value="">Авангард</option>
+              <option class="head__option" value="">Кандинский</option>
+              <option class="head__option" value="">Маринетти</option>
+              <option class="head__option" value="">Малевич</option>
+              <option class="head__option" value="">Пикассо</option>
+            </select>
+          </label>
 
-          <div class="dropdown head__select">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton5" data-bs-toggle="dropdown" aria-expanded="false">
-              Футуризм
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton5">
-              <li><a class="dropdown-item" href="#">Выбор 1</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 2</a></li>
-              <li><a class="dropdown-item" href="#">Выбор 3</a></li>
-            </ul>
-          </div>
+          <label class="head__label hl-5">
+            <select class="head__select">
+              <option class="head__option" value="">Футуризм</option>
+              <option class="head__option" value="">Карра</option>
+              <option class="head__option" value="">Прателла</option>
+              <option class="head__option" value="">Северини</option>
+              <option class="head__option" value="">Балла</option>
+            </select>
+          </label>
         </div>
 
         <div class="head__bottom-right">
@@ -203,16 +198,14 @@
               Фильтр
             </span>
 
-            <div class="dropdown gallery__dropdown">
-              <button class="btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton6" data-bs-toggle="dropdown" aria-expanded="false">
-                Живопись
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton6">
-                <li><a class="dropdown-item" href="#">Выбор 1</a></li>
-                <li><a class="dropdown-item" href="#">Выбор 2</a></li>
-                <li><a class="dropdown-item" href="#">Выбор 3</a></li>
-              </ul>
-            </div>
+            <label class="gallery__dropdown">
+              <select class="gallery__select">
+                <option class="gallery__option" value="">Живопись</option>
+                <option class="gallery__option" value="">Выбор 1</option>
+                <option class="gallery__option" value="">Выбор 2</option>
+                <option class="gallery__option" value="">Выбор 3</option>
+              </select>
+            </label>
           </div>
 
           <p class="gallery__down">
@@ -1349,7 +1342,9 @@
   <script src="jquery.js"></script>
   <script src="inputmask.min.js"></script>
   <script src="just-validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
   <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
   <script src="scripts.js"></script>
 
 </body>

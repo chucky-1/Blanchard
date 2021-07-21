@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Шапка дропдаун
+  document.querySelectorAll('.head__select').forEach(function (el) {
+    const element = el
+
+    const choices = new Choices(element, {
+      searchEnabled: false,
+      shouldSort: false,
+    });
+  });
+
+  // Шапка кастомный скроллбар
+  new SimpleBar(document.querySelector('.choices__list.choices__list--dropdown .choices__list'), {
+    autoHide: false,
+    scrollbarMaxSize: 28,
+  });
+
+  document.querySelector('.choices__list.choices__list--dropdown .choices__list').setAttribute('data-simplebar', true)
+
+  // Галерея дропдаун
+  const element = document.querySelector('.gallery__select');
+  const ch = new Choices(element, {
+    searchEnabled: false,
+    shouldSort: false,
+  });
+
   // Галерея слайдер
   const swiper = new Swiper('.gallery-container', {
     allowTouchMove: false,
