@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Шапка ссылки плавный переход
+  const anchors = document.querySelectorAll('a[href*="#"]')
+
+  for (let anchor of anchors) {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault()
+
+      const blockID = anchor.getAttribute('href').substr(1)
+
+      document.getElementById(blockID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    })
+  };
+
   // Шапка дропдаун
   document.querySelectorAll('.head__select').forEach(function (el) {
     const element = el
@@ -17,6 +33,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelector('.choices__list.choices__list--dropdown .choices__list').setAttribute('data-simplebar', true)
 
+  // Главный баннер слайдер
+  const swiper4 = new Swiper('.banner__swiper', {
+    autoHeight: true,
+    loop: true,
+    slidesPerColumnFill: 'row',
+    autoplay: {
+      delay: 10000,
+      disableOnInteraction: false,
+    },
+  });
+
   // Галерея дропдаун
   const element = document.querySelector('.gallery__select');
   const ch = new Choices(element, {
@@ -26,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Галерея слайдер
   const swiper = new Swiper('.gallery-container', {
-    allowTouchMove: false,
     slidesPerColumnFill: 'row',
     slidesPerView: 3,
     slidesPerColumn: 2,
@@ -46,12 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  // Активировать выделение Категории в разделе Издания
-  document.querySelectorAll('.editions__input').forEach(function (el) {
-    el.setAttribute('tabindex', 1)
-  });
-
-  // Выбор языка/страны
+  // Каталог Выбор языка/страны
   document.querySelectorAll('.catalog__country').forEach(function (btnActive) {
     btnActive.addEventListener('click', function (event) {
       document.querySelectorAll('.catalog__country').forEach(function (btn) {
@@ -60,6 +81,15 @@ document.addEventListener('DOMContentLoaded', function () {
       })
     })
   });
+
+  // Каталог аккордеон
+  $( function() {
+    $( ".catalog__accordion" ).accordion({
+      collapsible: true,
+      icons: false,
+      heightStyle: "content",
+    });
+  } );
 
   // Активировать выделение художника с помощью tab
   document.querySelectorAll('.accordion__pointer').forEach(function (el) {
@@ -107,9 +137,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // Активировать выделение Категории в разделе Издания
+  document.querySelectorAll('.editions__input').forEach(function (el) {
+    el.setAttribute('tabindex', 1)
+  });
+
   // Издания слайдер
   const swiper2 = new Swiper('.editions-container', {
-    allowTouchMove: false,
     slidesPerColumnFill: 'row',
     slidesPerView: 3,
     slidesPerGroup: 3,
