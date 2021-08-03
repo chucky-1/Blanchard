@@ -15,23 +15,65 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   };
 
-  // Шапка дропдаун
-  document.querySelectorAll('.head__select').forEach(function (el) {
-    const element = el
-
-    const choices = new Choices(element, {
-      searchEnabled: false,
-      shouldSort: false,
-    });
-  });
-
   // Шапка кастомный скроллбар
-  new SimpleBar(document.querySelector('.choices__list.choices__list--dropdown .choices__list'), {
-    autoHide: false,
-    scrollbarMaxSize: 28,
-  });
+  document.querySelectorAll('.head__dropdown').forEach(function (el) {
+    new SimpleBar(el), {
+      autoHide: false,
+      scrollbarMaxSize: 28,
+    }
+  })
 
-  document.querySelector('.choices__list.choices__list--dropdown .choices__list').setAttribute('data-simplebar', true)
+  // Шапка Раскрывающиеся меню
+  const params = {
+    btnClassName: "head__btn",
+    activeClassName: "is-active",
+    disabledClassName: "is-disabled"
+  }
+
+  function onDisable(evt) {
+    if (evt.target.classList.contains(params.disabledClassName)) {
+      evt.target.classList.remove(params.disabledClassName, params.activeClassName);
+      evt.target.removeEventListener("animationend", onDisable);
+    }
+  }
+
+  function setMenuListener() {
+    document.body.addEventListener("click", (evt) => {
+      const activeElements = document.querySelectorAll(`.${params.activeClassName}`);
+
+      if (activeElements.length && !evt.target.closest(`.${params.activeClassName}`)) {
+        activeElements.forEach((current) => {
+          if (current.classList.contains(params.btnClassName)) {
+            current.classList.remove(params.activeClassName);
+          } else {
+            current.classList.add(params.disabledClassName);
+          }
+        });
+      }
+
+      if (evt.target.closest(`.${params.btnClassName}`)) {
+        const btn = evt.target.closest(`.${params.btnClassName}`);
+        const path = btn.dataset.path;
+        const drop = document.querySelector(`[data-target="${path}"]`);
+
+        btn.classList.toggle(params.activeClassName);
+
+        if (!drop.classList.contains(params.activeClassName)) {
+          drop.classList.add(params.activeClassName);
+          drop.addEventListener("animationend", onDisable);
+        } else {
+          drop.classList.add(params.disabledClassName);
+        }
+      }
+    });
+  }
+
+  setMenuListener();
+
+  // Раскрывающиеся меня. Tabindex
+  document.querySelectorAll('.head__option').forEach(function (el) {
+    el.setAttribute('tabindex', 1)
+  })
 
   // Главный баннер слайдер
   const swiper4 = new Swiper('.banner__swiper', {
@@ -72,14 +114,23 @@ document.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  // Каталог Выбор языка/страны
+  // Каталог Выбор страны
   document.querySelectorAll('.catalog__country').forEach(function (btnActive) {
     btnActive.addEventListener('click', function (event) {
       document.querySelectorAll('.catalog__country').forEach(function (btn) {
         btn.classList.remove('country-activ')
-        btnActive.classList.add('country-activ')
-      })
-    })
+      });
+
+      btnActive.classList.add('country-activ')
+
+      const path2 = event.currentTarget.dataset.path2
+
+      document.querySelectorAll('.catalog_data').forEach(function (el) {
+        el.classList.remove('catalog-active')
+      });
+
+      document.querySelector(`[data-target2="${path2}"]`).classList.add('catalog-active')
+    });
   });
 
   // Каталог аккордеон
@@ -105,12 +156,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
       el.classList.add('accordion__pointer-activ')
 
-      const path = event.currentTarget.dataset.path
+      const path3 = event.currentTarget.dataset.path3
 
       document.querySelectorAll('.catalog__left').forEach(function (el2) {
         el2.classList.remove('catalog__left-activ')
       })
-      document.querySelector(`[data-target="${path}"]`).classList.add('catalog__left-activ')
+
+      document.querySelectorAll(`[data-target3="${path3}"]`).forEach(function (el) {
+        el.classList.add('catalog__left-activ')
+      })
     })
   });
 
@@ -208,7 +262,18 @@ document.addEventListener('DOMContentLoaded', function () {
           return Number(ph) && ph.length === 10
         }
       },
-    }});
+    },
+    messages: {
+      name: {
+        required: 'Недопустимый формат',
+        minLength: 'Недопустимый формат',
+      },
+      tel: {
+        required: 'Недопустимый формат',
+        function: 'Недопустимый формат',
+      },
+    },
+  });
 
   // Контакты. CSS input
   document.querySelectorAll('.contacts__input').forEach(function (el) {
@@ -234,8 +299,18 @@ document.addEventListener('DOMContentLoaded', function () {
       center: [55.7593103497515,37.64209791847732],
       // Уровень масштабирования. Допустимые значения:
       // от 0 (весь мир) до 19.
-      zoom: 14
-    });
+      zoom: 14,
+      controls: ['geolocationControl', 'zoomControl'],
+    },
+      {
+        suppressMapOpenBlock: true,
+        geolocationControlSize: "large",
+        geolocationControlPosition:  { top: "360px", right: "20px" },
+        geolocationControlFloat: 'none',
+        zoomControlSize: "small",
+        zoomControlFloat: "none",
+        zoomControlPosition: { top: "270px", right: "20px" }
+      });
 
     var myPlacemark = new ymaps.Placemark([55.75846806898367,37.60108849999989], {}, {
       iconLayout: 'default#image',
@@ -244,12 +319,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     myMap.geoObjects.add(myPlacemark)
 
-    myMap.controls.remove('rulerControl');
-    myMap.controls.remove('searchControl');
-    myMap.controls.remove('typeSelector');
-    myMap.controls.remove('trafficControl');
-    myMap.controls.remove('fullscreenControl');
-    myMap.controls.remove('routeButton');
+    // myMap.controls.remove('rulerControl');
+    // myMap.controls.remove('searchControl');
+    // myMap.controls.remove('typeSelector');
+    // myMap.controls.remove('trafficControl');
+    // myMap.controls.remove('fullscreenControl');
+    // myMap.controls.remove('routeButton');
     // myMap.controls.remove('geolocationControl');
   };
 

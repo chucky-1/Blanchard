@@ -31,6 +31,11 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+h2 {
+  font-size: 48px;
+  font-weight: 400;
+}
+
 a {
   text-decoration: none;
   color: #fff;
@@ -67,6 +72,7 @@ li {
 .head {
   content: '';
   position: absolute;
+  z-index: 1;
   top: 0;
   right: 0;
   left: 0;
@@ -87,8 +93,10 @@ li {
   margin-right: 173px;
 }
 
-.head__nav {
+.head__list {
   display: flex;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }
 
 .head__link,
@@ -100,7 +108,11 @@ li {
   color: white;
 }
 
-.head__link:not(:last-child) {
+.head__item {
+  padding: 5px 0;
+}
+
+.head__item:not(:last-child) {
   margin-right: 48px;
 }
 
@@ -119,7 +131,7 @@ li {
 }
 
 .head__top-right {
-  margin-left: 273px;
+  margin-left: 271px;
   padding-left: 26px;
   background-image: url("../img/Come_in_icon.png");
   background-repeat: no-repeat;
@@ -160,320 +172,648 @@ li {
 
 .head__bottom-left {
   display: flex;
+  flex-wrap: wrap;
+  margin-left: -9px;
+  max-width: 1200px;
 }
 
 .head__label {
-  margin-right: 87px;
+  margin-right: 83px;
 }
 
 /*Выпадающий список*/
-.choices__list--dropdown .choices__item:first-child {
-  display: none;
+/*.choices__list--dropdown .choices__item:first-child {*/
+/*  display: none;*/
+/*}*/
+
+/*.head__bottom-left .choices {*/
+/*  height: 26px;*/
+/*}*/
+
+/*.head__bottom-left .choices__inner {*/
+/*  padding: 0;*/
+/*  min-height: 26px;*/
+/*  font-size: 18px;*/
+/*  line-height: 1;*/
+/*  color: #fff;*/
+/*  background: rgba(0, 0, 0, 0);*/
+/*  border: none;*/
+/*  border-radius: 0;*/
+/*}*/
+
+/*.head__bottom-left .choices[data-type*=select-one] .choices__inner {*/
+/*  padding: 0 6px 0 0!important;*/
+/*}*/
+
+/*.choices__placeholder {*/
+/*  opacity: 1;*/
+/*}*/
+
+/*.choices[data-type*=select-one]::after {*/
+/*  display: none;*/
+/*}*/
+
+/*.choices[data-type*=select-one]::before {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  top: 36%;*/
+/*  right: 7px;*/
+/*  width: 7px;*/
+/*  height: 7px;*/
+/*  border-bottom: #fff 1px solid;*/
+/*  border-right: #fff 1px solid;*/
+/*  transform: rotate(45deg);*/
+/*}*/
+
+/*.choices[data-type*=select-one].is-open::before {*/
+/*  top: 51%;*/
+/*  transform: rotate(225deg);*/
+/*}*/
+
+/*.head__bottom-left .choices:focus .choices__inner {*/
+/*  color: #fff;*/
+/*  background: #7943A4;*/
+/*}*/
+
+/*.head__bottom-left .choices:hover .choices__inner {*/
+/*  color: #9D5CD0;*/
+/*  background: rgba(0, 0, 0, 0);*/
+/*}*/
+
+/*.head__bottom-left .choices:hover.choices[data-type*=select-one]::before {*/
+/*  border-bottom: #9D5CD0 1px solid;*/
+/*  border-right: #9D5CD0 1px solid;*/
+/*}*/
+
+/*.head__bottom-left .choices:active .choices__inner {*/
+/*  color: #7943A4;*/
+/*  background: rgba(0, 0, 0, 0);*/
+/*}*/
+
+/*.head__bottom-left .choices:active.choices[data-type*=select-one]::before {*/
+/*  border-bottom: #7943A4 1px solid;*/
+/*  border-right: #7943A4 1px solid;*/
+/*}*/
+
+/*.head__bottom-left .choices__list--dropdown {*/
+/*  margin-top: 11px;*/
+/*}*/
+
+/*.head__bottom-left .choices__list .choices__list--dropdown .is-open {*/
+/*  border: #000 1px solid;*/
+/*}*/
+
+/*.head__bottom-left .choices__list--dropdown .choices__list {*/
+/*  padding-left: 35px;*/
+/*  width: 300px;*/
+/*  height: 230px;*/
+/*}*/
+
+/*.head__bottom-left .is-open .choices__list--dropdown {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  width: 305px;*/
+/*  height: 300px;*/
+/*  background: rgba(0, 0, 0, .6);*/
+/*  border: #000 1px solid;*/
+/*  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));*/
+/*}*/
+
+/*.head__bottom-left .choices__list--dropdown .choices__item {*/
+/*  width: 220px;*/
+/*  height: 40px;*/
+/*  box-sizing: border-box;*/
+/*  font-size: 14px;*/
+/*  font-weight: 600;*/
+/*  line-height: 1;*/
+/*  color: #fff;*/
+/*  text-shadow: 1px 0 1px #000,*/
+/*  0 1px 1px #000,*/
+/*  -1px 0 1px #000,*/
+/*  0 -1px 1px #000;*/
+/*  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));*/
+/*  background: url("../img/dr1_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .choices__list--dropdown .choices__item:nth-child(2) {*/
+/*  margin-top: 2px;*/
+/*}*/
+
+/*.head__bottom-left .choices__list--dropdown .choices__item.is-highlighted {*/
+/*  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));*/
+/*  outline: #9D5CD0 2px solid;*/
+/*}*/
+
+/*.head__bottom-left .choices__list--dropdown .choices__item:hover {*/
+/*  outline: #9D5CD0 2px solid;*/
+/*}*/
+
+/*.head__bottom-left .choices__list--dropdown .choices__item:not(:last-child) {*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+/*.choices__list--dropdown .choices__item--selectable:after {*/
+/*  display: none;*/
+/*}*/
+
+/*.head__bottom-left .simplebar-track.simplebar-vertical {*/
+/*  right: 20px;*/
+/*  width: 2px;*/
+/*  background: #000;*/
+/*}*/
+
+/*.head__bottom-left .simplebar-scrollbar {*/
+/*  left: -2px;*/
+/*}*/
+
+/*.head__bottom-left .simplebar-scrollbar::before {*/
+/*  width: 2px;*/
+/*  background-color: #fff;*/
+/*}*/
+
+/*.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(2) {*/
+/*  background: url("../img/dr1_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(2):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr1_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+
+/*.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(3) {*/
+/*  background: url("../img/dr1_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(3):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr1_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(4) {*/
+/*  background: url("../img/dr1_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(4):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr1_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(5) {*/
+/*  background: url("../img/dr1_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(5):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr1_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(2) {*/
+/*  background: url("../img/dr2_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(2):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr2_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(3) {*/
+/*  background: url("../img/dr2_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(3):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr2_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(4) {*/
+/*  background: url("../img/dr2_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(4):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr2_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(5) {*/
+/*  background: url("../img/dr2_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(5):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr2_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(2) {*/
+/*  background: url("../img/dr3_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(2):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr3_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(3) {*/
+/*  background: url("../img/dr3_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(3):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr3_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(4) {*/
+/*  background: url("../img/dr3_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(4):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr3_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(5) {*/
+/*  background: url("../img/dr3_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(5):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr3_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(2) {*/
+/*  background: url("../img/dr4_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(2):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr4_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(3) {*/
+/*  background: url("../img/dr4_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(3):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr4_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(4) {*/
+/*  background: url("../img/dr4_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(4):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr4_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(5) {*/
+/*  background: url("../img/dr4_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(5):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr4_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(2) {*/
+/*  background: url("../img/dr5_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(2):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr5_Rectangle 57.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(3) {*/
+/*  background: url("../img/dr5_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(3):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr5_Rectangle 58.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(4) {*/
+/*  background: url("../img/dr5_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(4):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr5_Rectangle 59.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(5) {*/
+/*  background: url("../img/dr5_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(5):active {*/
+/*  background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr5_Rectangle 60.jpg") no-repeat;*/
+/*}*/
+
+/*.head__label:not(:first-child) .head__dropdown {*/
+/*  display: none;*/
+/*}*/
+
+.head__label {
+  position: relative;
 }
 
-.head__bottom-left .choices {
-  height: 26px;
-}
-
-.head__bottom-left .choices__inner {
-  padding: 0;
-  min-height: 26px;
-  font-size: 18px;
-  line-height: 1;
-  color: #fff;
-  background: rgba(0, 0, 0, 0);
-  border: none;
-  border-radius: 0;
-}
-
-.head__bottom-left .choices[data-type*=select-one] .choices__inner {
-  padding: 0 6px 0 0!important;
-}
-
-.choices__placeholder {
-  opacity: 1;
-}
-
-.choices[data-type*=select-one]::after {
-  display: none;
-}
-
-.choices[data-type*=select-one]::before {
-  content: '';
+.head__dropdown {
   position: absolute;
-  top: 36%;
-  right: 7px;
-  width: 7px;
-  height: 7px;
-  border-bottom: #fff 1px solid;
-  border-right: #fff 1px solid;
-  transform: rotate(45deg);
+  content: '';
+  display: none;
+  top: 50px;
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.6);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.choices[data-type*=select-one].is-open::before {
-  top: 51%;
-  transform: rotate(225deg);
+.head__btn {
+  position: relative;
+  padding: 6px 24px 6px 6px;
+  border-style: none;
+  background: transparent;
+  cursor: pointer;
 }
 
-.head__bottom-left .choices:focus .choices__inner {
+.head__item-heading {
+  font-size: 18px;
+  font-weight: 400;
   color: #fff;
+}
+
+.head__btn:focus {
   background: #7943A4;
 }
 
-.head__bottom-left .choices:hover .choices__inner {
-  color: #9D5CD0;
+.head__btn:hover,
+.head__btn:active {
   background: rgba(0, 0, 0, 0);
 }
 
-.head__bottom-left .choices:hover.choices[data-type*=select-one]::before {
+.head__btn:focus .head__item-heading {
+  color: #fff;
+}
+
+.head__btn:hover .head__item-heading {
+  color: #9D5CD0;
+}
+
+.head__btn:active .head__item-heading {
+  color: #7943A4;
+}
+
+.head__item-icon {
+    content: '';
+    position: absolute;
+    top: 36%;
+    right: 8px;
+    width: 7px;
+    height: 7px;
+    border-bottom: #fff 1px solid;
+    border-right: #fff 1px solid;
+    transform: rotate(45deg);
+}
+
+.head__btn.is-active  .head__item-icon{
+  top: 52%;
+  transform: rotate(225deg);
+}
+
+.head__btn:focus .head__item-icon {
+  border-bottom: #fff 1px solid;
+  border-right: #fff 1px solid;
+}
+
+.head__btn:hover .head__item-icon {
   border-bottom: #9D5CD0 1px solid;
   border-right: #9D5CD0 1px solid;
 }
 
-.head__bottom-left .choices:active .choices__inner {
-  color: #7943A4;
-  background: rgba(0, 0, 0, 0);
-}
-
-.head__bottom-left .choices:active.choices[data-type*=select-one]::before {
+.head__btn:active .head__item-icon {
   border-bottom: #7943A4 1px solid;
   border-right: #7943A4 1px solid;
 }
 
-.head__bottom-left .choices__list--dropdown {
-  margin-top: 11px;
-}
-
-.head__bottom-left .choices__list .choices__list--dropdown .is-open {
-  border: #000 1px solid;
-}
-
-.head__bottom-left .choices__list--dropdown .choices__list {
-  padding-left: 35px;
-  width: 300px;
-  height: 230px;
-}
-
-.head__bottom-left .is-open .choices__list--dropdown {
+.head__option {
+  position: relative;
   display: flex;
   align-items: center;
-  width: 305px;
-  height: 300px;
-  background: rgba(0, 0, 0, .6);
-  border: #000 1px solid;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.head__bottom-left .choices__list--dropdown .choices__item {
+  padding-left: 14px;
   width: 220px;
   height: 40px;
   box-sizing: border-box;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-  color: #fff;
   text-shadow: 1px 0 1px #000,
   0 1px 1px #000,
   -1px 0 1px #000,
   0 -1px 1px #000;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background: url("../img/dr1_Rectangle 57.jpg") no-repeat;
+  /*filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));*/
+  outline: none;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
 
-.head__bottom-left .choices__list--dropdown .choices__item:nth-child(2) {
-  margin-top: 2px;
-}
-
-.head__bottom-left .choices__list--dropdown .choices__item.is-highlighted {
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  outline: #9D5CD0 2px solid;
-}
-
-.head__bottom-left .choices__list--dropdown .choices__item:hover {
-  outline: #9D5CD0 2px solid;
-}
-
-.head__bottom-left .choices__list--dropdown .choices__item:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-.choices__list--dropdown .choices__item--selectable:after {
-  display: none;
-}
-
-.head__bottom-left .simplebar-track.simplebar-vertical {
-  right: 20px;
-  width: 2px;
-  background: #000;
-}
-
-.head__bottom-left .simplebar-scrollbar {
+.head__option::before {
+  position: absolute;
+  content: '';
+  z-index: -1;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
   left: -2px;
 }
 
-.head__bottom-left .simplebar-scrollbar::before {
-  width: 2px;
-  background-color: #fff;
+.head__option:hover,
+.head__option:focus,
+.head__option:active {
+  border: 2px solid #9D5CD0;
 }
 
-.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(2) {
+.head__bottom-link {
+  outline: none;
+}
+
+.simplebar-offset {
+  padding: 40px 0;
+}
+
+.simplebar-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.simplebar-content {
+  height: 220px;
+}
+
+.simplebar-track {
+  top: 40px!important;
+  bottom: 40px;
+  background: #000;
+}
+
+.simplebar-track.simplebar-vertical {
+  right: 20px;
+  width: 2px;
+}
+
+.simplebar-scrollbar {
+  background: white;
+}
+
+.head__option:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.is-active {
+  display: block;
+}
+
+.is-disabled {
+  display: none;
+}
+
+.head__label:nth-child(1) .head__option:nth-child(1)::before {
   background: url("../img/dr1_Rectangle 57.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(2):active {
+.head__label:nth-child(1) .head__option:nth-child(1):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr1_Rectangle 57.jpg") no-repeat;
 }
 
-
-.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(3) {
+.head__label:nth-child(1) .head__option:nth-child(2)::before {
   background: url("../img/dr1_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(3):active {
+.head__label:nth-child(1) .head__option:nth-child(2):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr1_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(4) {
+.head__label:nth-child(1) .head__option:nth-child(3)::before {
   background: url("../img/dr1_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(4):active {
+.head__label:nth-child(1) .head__option:nth-child(3):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr1_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(5) {
+.head__label:nth-child(1) .head__option:nth-child(4)::before {
   background: url("../img/dr1_Rectangle 60.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-1 .choices__list--dropdown .choices__item:nth-child(5):active {
+.head__label:nth-child(1) .head__option:nth-child(4):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr1_Rectangle 60.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(2) {
+.head__label:nth-child(2) .head__option:nth-child(1)::before {
   background: url("../img/dr2_Rectangle 57.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(2):active {
+.head__label:nth-child(2) .head__option:nth-child(1):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr2_Rectangle 57.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(3) {
+.head__label:nth-child(2) .head__option:nth-child(2)::before {
   background: url("../img/dr2_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(3):active {
+.head__label:nth-child(2) .head__option:nth-child(2):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr2_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(4) {
+.head__label:nth-child(2) .head__option:nth-child(3)::before {
   background: url("../img/dr2_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(4):active {
+.head__label:nth-child(2) .head__option:nth-child(3):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr2_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(5) {
+.head__label:nth-child(2) .head__option:nth-child(4)::before {
   background: url("../img/dr2_Rectangle 60.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-2 .choices__list--dropdown .choices__item:nth-child(5):active {
+.head__label:nth-child(2) .head__option:nth-child(4):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr2_Rectangle 60.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(2) {
+.head__label:nth-child(3) .head__option:nth-child(1)::before {
   background: url("../img/dr3_Rectangle 57.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(2):active {
+.head__label:nth-child(3) .head__option:nth-child(1):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr3_Rectangle 57.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(3) {
+.head__label:nth-child(3) .head__option:nth-child(2)::before {
   background: url("../img/dr3_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(3):active {
+.head__label:nth-child(3) .head__option:nth-child(2):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr3_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(4) {
+.head__label:nth-child(3) .head__option:nth-child(3)::before {
   background: url("../img/dr3_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(4):active {
+.head__label:nth-child(3) .head__option:nth-child(3):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr3_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(5) {
+.head__label:nth-child(3) .head__option:nth-child(4)::before {
   background: url("../img/dr3_Rectangle 60.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-3 .choices__list--dropdown .choices__item:nth-child(5):active {
+.head__label:nth-child(3) .head__option:nth-child(4):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr3_Rectangle 60.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(2) {
+.head__label:nth-child(4) .head__option:nth-child(1)::before {
   background: url("../img/dr4_Rectangle 57.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(2):active {
+.head__label:nth-child(4) .head__option:nth-child(1):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr4_Rectangle 57.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(3) {
+.head__label:nth-child(4) .head__option:nth-child(2)::before {
   background: url("../img/dr4_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(3):active {
+.head__label:nth-child(4) .head__option:nth-child(2):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr4_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(4) {
+.head__label:nth-child(4) .head__option:nth-child(3)::before {
   background: url("../img/dr4_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(4):active {
+.head__label:nth-child(4) .head__option:nth-child(3):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr4_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(5) {
+.head__label:nth-child(4) .head__option:nth-child(4)::before {
   background: url("../img/dr4_Rectangle 60.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-4 .choices__list--dropdown .choices__item:nth-child(5):active {
+.head__label:nth-child(4) .head__option:nth-child(4):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr4_Rectangle 60.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(2) {
+.head__label:nth-child(5) .head__option:nth-child(1)::before  {
   background: url("../img/dr5_Rectangle 57.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(2):active {
+.head__label:nth-child(5) .head__option:nth-child(1):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr5_Rectangle 57.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(3) {
+.head__label:nth-child(5) .head__option:nth-child(2)::before {
   background: url("../img/dr5_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(3):active {
+.head__label:nth-child(5) .head__option:nth-child(2):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr5_Rectangle 58.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(4) {
+.head__label:nth-child(5) .head__option:nth-child(3)::before {
   background: url("../img/dr5_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(4):active {
+.head__label:nth-child(5) .head__option:nth-child(3):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr5_Rectangle 59.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(5) {
+.head__label:nth-child(5) .head__option:nth-child(4)::before {
   background: url("../img/dr5_Rectangle 60.jpg") no-repeat;
 }
 
-.head__bottom-left .hl-5 .choices__list--dropdown .choices__item:nth-child(5):active {
+.head__label:nth-child(5) .head__option:nth-child(4):active::before {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url("../img/dr5_Rectangle 60.jpg") no-repeat;
 }
 
@@ -487,15 +827,22 @@ li {
 }
 
 .head__search-btn {
-  padding: 0;
+  padding: 3px;
+  box-sizing: content-box;
   width: 22px;
   height: 22px;
-  background: rgba(0, 0, 0, 0) url("../img/Search.png") no-repeat;
+  background: rgba(0, 0, 0, 0) url("../img/Search.png") no-repeat center;
   border: none;
+  outline: none;
+}
+
+.head__search-btn:focus,
+.head__search-btn:hover {
+  outline: #C283F3 1px solid
 }
 
 .head__search-input {
-  margin-left: 9px;
+  margin-left: 6px;
   width: 218px;
   line-height: 1;
   color: #fff;
@@ -527,7 +874,8 @@ li {
 /*Main*/
 /*Banner*/
 .banner {
-  min-height: 780px;
+  position: relative;
+  min-height: 717px;
 }
 
 .banner .swiper-container-autoheight,
@@ -539,6 +887,11 @@ li {
   position: absolute;
   z-index: -1;
   width: 100%;
+  height: 100%!important;
+}
+
+.banner .swiper-item {
+  height: 100vh;
 }
 
 .banner .swiper-slide-active .swiper-item {
@@ -559,8 +912,8 @@ li {
 }
 
 .banner__head {
-  padding-top: 223px;
-  margin-bottom: 10px;
+  padding-top: 159px;
+  margin: 0 0 10px 0;
   width: 565px;
   font-size: 72px;
   font-weight: 700;
@@ -569,7 +922,7 @@ li {
 }
 
 .banner__description {
-  margin-bottom: 111px;
+  margin-bottom: 94px;
   width: 550px;
   font-size: 18px;
   font-weight: 700;
@@ -579,6 +932,8 @@ li {
 
 .banner__btn {
   position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
   padding: 23px 35px;
   font-size: 18px;
   font-weight: 700;
@@ -650,7 +1005,6 @@ li {
 .aboutUs__head {
   margin-top: 80px;
   margin-bottom: 2px;
-  font-size: 48px;
   line-height: 65px;
   color: #333333;
 }
@@ -681,8 +1035,6 @@ li {
 .gallery__head {
   margin-top: 80px;
   margin-bottom: 15px;
-  font-size: 48px;
-  font-weight: 400;
   line-height: 65px;
   color: white;
 }
@@ -701,6 +1053,39 @@ li {
 }
 
 /*!*Выпадающий список*!*/
+.choices__list--dropdown .choices__item:first-child {
+  display: none;
+}
+
+.choices__placeholder {
+  opacity: 1;
+}
+
+.choices[data-type*=select-one]::after {
+  display: none;
+}
+
+.choices[data-type*=select-one]::before {
+  content: '';
+  position: absolute;
+  top: 36%;
+  right: 7px;
+  width: 7px;
+  height: 7px;
+  border-bottom: #fff 1px solid;
+  border-right: #fff 1px solid;
+  transform: rotate(45deg);
+}
+
+.choices[data-type*=select-one].is-open::before {
+  top: 45%;
+  transform: rotate(225deg);
+}
+
+.choices__list--dropdown .choices__item--selectable:after {
+  display: none;
+}
+
 .gallery__dropdown .choices__inner {
   padding: 3px 0 0 15px;
   width: 400px;
@@ -855,55 +1240,71 @@ li {
   width: 350px;
   height: 350px;
   box-sizing: border-box;
+  border: transparent 2px solid;
   cursor: pointer;
-  transition: background .3s ease, border .3s ease;
+  transition: border .3s ease;
 }
 
-.gallery .swiper-slide:nth-child(1) {
+.gallery .swiper-slide:active {
+  border: #D1A9F0 2px solid;
+}
+
+.gallery .swiper-slide::after {
+  position: absolute;
+  content: '';
+  z-index: -1;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  transition: background .3s ease;
+}
+
+.gallery .swiper-slide:nth-child(1)::after {
   background: url("../img/Rectangle 70.jpg");
 }
 
-.gallery .swiper-slide:nth-child(2) {
+.gallery .swiper-slide:nth-child(2)::after {
   background: url("../img/Rectangle 69.jpg");
 }
 
-.gallery .swiper-slide:nth-child(3) {
+.gallery .swiper-slide:nth-child(3)::after {
   background: url("../img/Rectangle 68.jpg");
 }
 
-.gallery .swiper-slide:nth-child(4) {
+.gallery .swiper-slide:nth-child(4)::after {
   background: url("../img/Rectangle 1.jpg");
 }
 
-.gallery .swiper-slide:nth-child(5) {
+.gallery .swiper-slide:nth-child(5)::after {
   background: url("../img/Rectangle 2.jpg");
 }
 
-.gallery .swiper-slide:nth-child(6) {
+.gallery .swiper-slide:nth-child(6)::after {
   background: url("../img/Rectangle 3.jpg");
 }
 
-.gallery .swiper-slide:nth-child(7) {
+.gallery .swiper-slide:nth-child(7)::after {
   background: url("../img/Rectangle 72.jpg");
 }
 
-.gallery .swiper-slide:nth-child(8) {
+.gallery .swiper-slide:nth-child(8)::after {
   background: url("../img/Rectangle 73.jpg");
 }
 
-.gallery .swiper-slide:nth-child(9) {
+.gallery .swiper-slide:nth-child(9)::after {
   background: url("../img/Rectangle 71.jpg");
 }
 
-.gallery .swiper-slide:nth-child(10) {
+.gallery .swiper-slide:nth-child(10)::after {
   background: url("../img/Rectangle 4.jpg");
 }
 
-.gallery .swiper-slide:nth-child(11) {
+.gallery .swiper-slide:nth-child(11)::after {
   background: url("../img/Rectangle 5.jpg");
 }
 
-.gallery .swiper-slide:nth-child(12) {
+.gallery .swiper-slide:nth-child(12)::after {
   background: url("../img/Rectangle 6.jpg");
 }
 
@@ -924,64 +1325,52 @@ li {
   opacity: 1;
 }
 
-.gallery .swiper-slide:active {
+.gallery .swiper-slide:nth-child(1):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 70.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(2):active {
+.gallery .swiper-slide:nth-child(2):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 69.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(3):active {
+.gallery .swiper-slide:nth-child(3):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 68.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(4):active {
+.gallery .swiper-slide:nth-child(4):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 1.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(5):active {
+.gallery .swiper-slide:nth-child(5):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 2.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(6):active {
+.gallery .swiper-slide:nth-child(6):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 3.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(7):active {
+.gallery .swiper-slide:nth-child(7):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 72.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(8):active {
+.gallery .swiper-slide:nth-child(8):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 73.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(9):active {
+.gallery .swiper-slide:nth-child(9):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 71.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(10):active {
+.gallery .swiper-slide:nth-child(10):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 4.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(11):active {
+.gallery .swiper-slide:nth-child(11):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 5.jpg');
-  border: #D1A9F0 2px solid;
 }
 
-.gallery .swiper-slide:nth-child(12):active {
+.gallery .swiper-slide:nth-child(12):active::after {
   background: linear-gradient(0deg, rgba(194, 131, 243, 0.4), rgba(194, 131, 243, 0.4)), url('../img/Rectangle 6.jpg');
-  border: #D1A9F0 2px solid;
 }
 
 /*Catalog*/
@@ -992,8 +1381,7 @@ li {
 }
 
 .catalog__head {
-  margin: 0 15px 0 0;
-  font-size: 48px;
+  margin: 0 29px 0 0;
   line-height: 65px;
   color: #333333;
 }
@@ -1010,8 +1398,12 @@ li {
   position: relative;
   width: 66px;
   height: 66px;
-  background: url("../img/France.png") no-repeat center center;
   cursor: pointer;
+  transition: filter .3s ease;
+}
+
+.catalog__country:nth-child(1) {
+  background: url("../img/France.png") no-repeat center center;
 }
 
 .catalog__country:nth-child(2) {
@@ -1032,13 +1424,14 @@ li {
 
 .catalog__country::before {
   content: '';
-  display: none;
+  opacity: 0;
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   background: url("../img/Country_ellipse.png");
+  transition: opacity .3s ease;
 }
 
 .catalog__country::after {
@@ -1074,6 +1467,14 @@ li {
 }
 
 .country-activ.catalog__country::before {
+  opacity: 1;
+}
+
+.catalog_data {
+  display: none;
+}
+
+.catalog-active {
   display: block;
 }
 
@@ -1134,17 +1535,17 @@ li {
 .ui-accordion .ui-accordion-header {
   position: relative;
   margin: 0;
-  padding: 41px 0 48px 0;
+  padding: 41px 0 43px 0;
   font-size: 24px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.3;
   background: rgba(0, 0, 0, 0);
   outline: none;
   transition: color .3s ease;
 }
 
 .ui-accordion .accordion__head-span {
-  transition: color inherit ease, background .3s ease;
+  transition: background .3s ease;
 }
 
 .ui-accordion .ui-accordion-header::before {
@@ -1156,6 +1557,10 @@ li {
   height: 50px;
   background: url("../img/Accordion_arrow.svg");
   transition: background .3s ease, transform .3s ease;
+}
+
+.ui-accordion .ui-accordion-header:active::before {
+  background: url("../img/Accordion_arrow_activ.svg");
 }
 
 .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
@@ -1180,20 +1585,31 @@ li {
 .ui-button,
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-  border-top: #CACACA 1px solid;
   border-right: none;
-  border-bottom: #CACACA 1px solid;
   border-left: none;
+}
+
+.ui-state-default,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+  border-top: #CACACA 1px solid;
+  border-bottom: #CACACA 1px solid;
   transition: border-top .3s ease, border-bottom .3s ease;
 }
 
+.ui-state-default:not(:first-child) {
+  margin-top: -1px;
+}
+
 .ui-state-hover {
+  z-index: 1;
   border-top: #9D5CD0 1px solid;
   border-bottom: #9D5CD0 1px solid;
 }
 
 .ui-accordion-header-active,
 .ui-state-active {
+  z-index: 1;
   border-top: #7943A4 1px solid;
   border-bottom: #7943A4 1px solid;
 }
@@ -1257,7 +1673,9 @@ html .ui-button.ui-state-disabled:active {
 
 .accordion__pointer {
   padding: 1px 0;
+  border-bottom: transparent 1px solid;
   cursor: pointer;
+  transition: color .3s ease, border .3s ease, background-color .3s ease;
 }
 
 .accordion__pointer-activ {
@@ -1295,8 +1713,8 @@ html .ui-button.ui-state-disabled:active {
 
 .events__heading {
   margin-right: auto;
+  margin-top: 33px;
   margin-bottom: 2px;
-  font-size: 48px;
   line-height: 65px;
   color: #333333;
 }
@@ -1450,7 +1868,6 @@ html .ui-button.ui-state-disabled:active {
 .editions__head {
   margin-top: 80px;
   margin-bottom: 17px;
-  font-size: 48px;
   line-height: 65px;
   color: white;
 }
@@ -1690,7 +2107,6 @@ input[type=number] {
 .projects__head {
   margin-top: 80px;
   margin-bottom: 16px;
-  font-size: 48px;
   line-height: 65px;
   color: #333333;
 }
@@ -1827,49 +2243,21 @@ input[type=number] {
 
 .projects-container {
   width: 1550px;
-  height: 150px;
+  height: 151px;
   overflow: hidden;
 }
 
 .projects__slider .swiper-slide {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   width: 450px;
   height: 150px;
-  background: url("../img/Partners_1.png") no-repeat center center;
   border: #CACACA 1px solid;
   cursor: pointer;
-}
-
-.projects__slider .swiper-slide:nth-child(2) {
-  background: url("../img/Partners_2.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:nth-child(3) {
-  background: url("../img/Partners_3.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:nth-child(4) {
-  background: url("../img/Partners_4.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:nth-child(5) {
-  background: url("../img/Partners_5.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:nth-child(6) {
-  background: url("../img/Partners_6.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:nth-child(7) {
-  background: url("../img/Partners_7.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:nth-child(8) {
-  background: url("../img/Partners_8.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:nth-child(9) {
-  background: url("../img/Partners_9.png") no-repeat center center;
+  transition: border .3s ease;
 }
 
 .projects__slider .swiper-slide:focus {
@@ -1881,44 +2269,24 @@ input[type=number] {
 }
 
 .projects__slider .swiper-slide:hover {
-  background: url("../img/Partners_1_color.png") no-repeat center center;
   border: #CACACA 1px solid;
-}
-
-.projects__slider .swiper-slide:hover:nth-child(2) {
-  background: url("../img/Partners_2_color.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:hover:nth-child(3) {
-  background: url("../img/Partners_3_color.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:hover:nth-child(4) {
-  background: url("../img/Partners_4_color.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:hover:nth-child(5) {
-  background: url("../img/Partners_5_color.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:hover:nth-child(6) {
-  background: url("../img/Partners_6_color.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:hover:nth-child(7) {
-  background: url("../img/Partners_7_color.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:hover:nth-child(8) {
-  background: url("../img/Partners_8_color.png") no-repeat center center;
-}
-
-.projects__slider .swiper-slide:hover:nth-child(9) {
-  background: url("../img/Partners_9_color.jpg") no-repeat center center;
 }
 
 .projects__slider .swiper-slide:active {
   border: #9D5CD0 1px solid;
+}
+
+.projects__img {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  transition: filter .3s ease, opacity .3s ease;
+}
+
+.projects__slider .swiper-slide:hover .projects__img,
+.projects__slider .swiper-slide:focus .projects__img,
+.projects__slider .swiper-slide:active .projects__img {
+  filter: grayscale(0);
+  opacity: 1;
 }
 
 .projects__slider .swiper-prev,
@@ -1947,6 +2315,13 @@ input[type=number] {
 .projects__slider .swiper-button-next.swiper-button-disabled,
 .projects__slider .swiper-button-prev.swiper-button-disabled {
   background: #ECECEC!important;
+}
+
+.projects__slider .swiper-btn {
+  width: 34px;
+  height: 34px;
+  box-sizing: border-box;
+  border: transparent 2px solid;
 }
 
 .projects__slider .swiper-btn:focus {
@@ -1995,7 +2370,6 @@ input[type=number] {
 
 .contacts__head {
   margin-bottom: 17px;
-  font-size: 48px;
   line-height: 65px;
   color: #333333;
 }
@@ -2030,7 +2404,7 @@ input[type=number] {
 }
 
 .contacts__call {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .contacts__form {
@@ -2048,7 +2422,7 @@ input[type=number] {
   padding-left: 24px;
   width: 372px;
   height: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   color: #333;
   border: #333333 1px solid;
   border-radius: 100px;
@@ -2062,7 +2436,7 @@ input[type=number] {
 
 .js-validate-error-label {
   position: absolute;
-  top: -25px;
+  top: -21px;
   left: 24px;
   color: #D11616 !important;
 }
@@ -2112,6 +2486,7 @@ input[type=number] {
   bottom: 0;
   left: 0;
   outline: none;
+  transition: opacity .3s ease;
 }
 
 .contacts__link::before {
@@ -2162,21 +2537,11 @@ input[type=number] {
   filter: grayscale(1);
 }
 
-.ymaps-2-1-78-zoom {
+.ymaps-2-1-79-zoom {
   height: auto!important;
 }
 
-.ymaps-2-1-78-zoom__scale {
-  display: none;
-}
-
-.ymaps-2-1-78-zoom {
-  position: absolute!important;
-  top: 160px;
-  left: 1185px;
-}
-
-.ymaps-2-1-78-zoom__plus {
+.ymaps-2-1-79-zoom__plus {
   box-shadow: none!important;
   border-top-left-radius: 10px!important;
   border-top-right-radius: 10px!important;
@@ -2184,7 +2549,7 @@ input[type=number] {
   border-bottom-left-radius: 0!important;
 }
 
-.ymaps-2-1-78-zoom__minus {
+.ymaps-2-1-79-zoom__minus {
   box-shadow: none!important;
   border-top-left-radius: 0!important;
   border-top-right-radius: 0!important;
@@ -2192,13 +2557,7 @@ input[type=number] {
   border-bottom-left-radius: 10px!important;
 }
 
-.ymaps-2-1-78-controls__control_toolbar {
-  position: absolute!important;
-  top: 325px!important;
-  left: 1185px!important;
-}
-
-.ymaps-2-1-78-float-button {
+.ymaps-2-1-79-float-button {
   box-shadow: none!important;
   border-radius: 10px!important;
 }
@@ -2220,6 +2579,11 @@ input[type=number] {
   margin: 0;
 }
 
+.footer__item {
+  width: 45px;
+  height: 45px;
+}
+
 .footer__item:not(:last-child) {
   margin-right: 20px;
 }
@@ -2229,10 +2593,12 @@ input[type=number] {
 }
 
 .footer__link:hover svg path,
-.footer__link:focus svg path{
+.footer__link:focus svg path {
+  transition: fill .3s ease;
   fill: #fff;
 }
 
 .footer__link:active svg path {
+  transition: fill .3s ease;
   fill: #9D5CD0;
 }
