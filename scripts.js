@@ -96,10 +96,20 @@ document.addEventListener('DOMContentLoaded', function () {
   // Галерея слайдер
   const swiper = new Swiper('.gallery-container', {
     slidesPerColumnFill: 'row',
-    slidesPerView: 3,
-    slidesPerColumn: 2,
-    slidesPerGroup: 6,
-    spaceBetween: 50,
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        slidesPerColumn: 2,
+        slidesPerGroup: 4,
+        spaceBetween: 34,
+      },
+      1024: {
+        slidesPerView: 3,
+        slidesPerColumn: 2,
+        slidesPerGroup: 6,
+        spaceBetween: 50,
+      },
+    },
 
     // If we need pagination
     pagination: {
@@ -199,9 +209,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // Издания слайдер
   const swiper2 = new Swiper('.editions-container', {
     slidesPerColumnFill: 'row',
-    slidesPerView: 3,
-    slidesPerGroup: 3,
-    spaceBetween: 50,
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 50,
+      },
+      1024: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 50,
+      },
+    },
 
     // If we need pagination
     pagination: {
@@ -220,9 +239,18 @@ document.addEventListener('DOMContentLoaded', function () {
   const swiper3 = new Swiper('.projects-container', {
     allowTouchMove: false,
     slidesPerColumnFill: 'row',
-    slidesPerView: 3,
-    slidesPerGroup: 3,
-    spaceBetween: 50,
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 41,
+      },
+      1024: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        spaceBetween: 50,
+      },
+    },
 
     // If we need pagination
     pagination: {
